@@ -35,6 +35,8 @@ values."
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
+     osx
+     php
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -192,14 +194,17 @@ values."
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init'.  You are free to put any
 user code."
+  (set-coding-system-priority 'utf-8 'chinese-gbk 'chinese-iso-8bit)
+  (setq-default dotspacemacs-default-font '("DejaVu Sans Mono"
+                                            :size 13))
   )
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
  This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
-  (set-coding-system-priority 'utf-8 'chinese-gb18030) 
   (setq powerline-default-separator nil)
+  (setq neo-vc-integration nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
