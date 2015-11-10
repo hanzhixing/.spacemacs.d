@@ -37,6 +37,8 @@ values."
      ;; version-control
      osx
      php
+     html
+     javascript
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -205,6 +207,8 @@ user code."
 layers configuration. You are free to put any user code."
   (setq powerline-default-separator nil)
   (setq neo-vc-integration nil)
+  (setq web-mode-code-indent-offset 4)
+  (setq web-mode-markup-indent-offset 4)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
