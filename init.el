@@ -48,9 +48,7 @@
     ;; configuration in `dotspacemacs/user-config'.
     dotspacemacs-additional-packages '()
     ;; A list of packages and/or extensions that will not be install and loaded.
-    dotspacemacs-excluded-packages '(
-                                     smartparens
-                                     )
+    dotspacemacs-excluded-packages '(smartparens)
     ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
     ;; are declared in a layer which is not a member of
     ;; the list `dotspacemacs-configuration-layers'. (default t)
@@ -265,7 +263,6 @@
   (setq web-mode-code-indent-offset 4)
   (setq web-mode-markup-indent-offset 4)
   (spacemacs/toggle-highlight-current-line-globally-off)
-  (spacemacs/toggle-smartparens)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
