@@ -311,12 +311,22 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq powerline-default-separator nil)
   (setq neo-vc-integration nil)
-  (setq js2-basic-offset 2)
+  (setq indent-tabs-mode nil)
+  (setq-default js2-basic-offset 2)
+  (setq-default js-indent-level 2)
   (setq css-indent-offset 2)
-  (setq web-mode-markup-indent-offset 2)
-  (setq web-mode-css-indent-offset 2)
-  (setq web-mode-code-indent-offset 2)
-  (setq web-mode-attr-indent-offset 2)
+  (defun my-web-mode-hook ()
+      "Hooks for Web mode."
+      (setq web-mode-markup-indent-offset 2)
+      (setq web-mode-css-indent-offset 2)
+      (setq web-mode-code-indent-offset 2)
+      (setq web-mode-attr-indent-offset 2)
+      )
+  (add-hook 'web-mode-hook  'my-web-mode-hook)
+  (with-eval-after-load 'web-mode
+                        (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
+                        (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
+                        (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
   (spacemacs/toggle-highlight-current-line-globally-off)
   )
 
