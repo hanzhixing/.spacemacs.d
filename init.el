@@ -312,6 +312,7 @@ you should place your code here."
   (setq powerline-default-separator nil)
   (setq neo-vc-integration nil)
   (setq indent-tabs-mode nil)
+  (setq neo-theme 'nerd)
   (setq-default js2-basic-offset 2)
   (setq-default js-indent-level 2)
   (setq css-indent-offset 2)
