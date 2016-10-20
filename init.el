@@ -65,7 +65,10 @@ values."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(smartparens)
+   dotspacemacs-excluded-packages '(
+                                    smartparens
+                                    php-extras
+                                    )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and uninstall any
@@ -313,15 +316,15 @@ you should place your code here."
   (setq neo-vc-integration nil)
   (setq indent-tabs-mode nil)
   (setq neo-theme 'nerd)
-  (setq-default js2-basic-offset 2)
-  (setq-default js-indent-level 2)
-  (setq css-indent-offset 2)
+  (setq-default js2-basic-offset 4)
+  (setq-default js-indent-level 4)
+  (setq css-indent-offset 4)
   (defun my-web-mode-hook ()
       "Hooks for Web mode."
-      (setq web-mode-markup-indent-offset 2)
-      (setq web-mode-css-indent-offset 2)
-      (setq web-mode-code-indent-offset 2)
-      (setq web-mode-attr-indent-offset 2)
+      (setq web-mode-markup-indent-offset 4)
+      (setq web-mode-css-indent-offset 4)
+      (setq web-mode-code-indent-offset 4)
+      (setq web-mode-attr-indent-offset 4)
       )
   (add-hook 'web-mode-hook  'my-web-mode-hook)
   (with-eval-after-load 'web-mode
