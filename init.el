@@ -341,7 +341,7 @@
     (setq tab-width 4)
     (setq sws-tab-width 4))
   (spacemacs/toggle-highlight-current-line-globally-off)
-  (push '("\\.js\\'" . react-mode) auto-mode-alist)
+  ;;(push '("\\.js\\'" . react-mode) auto-mode-alist)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
