@@ -51,9 +51,11 @@
      ;; syntax-checking
      ;; version-control
      osx
-     php
+     ;; php
      html
+     colors
      java
+     sql
      javascript
      yaml
      react
@@ -316,21 +318,26 @@
   This is the place where most of your configurations should be done. Unless it is
   explicitly specified that a variable should be set before a package is loaded,
   you should place your code here."
+  (editorconfig-mode 1)
+                                        ;(spacemacs/toggle-smartparens-globally-off)
+  (spacemacs/toggle-highlight-current-line-globally-off)
   (setq powerline-default-separator nil)
   (setq neo-vc-integration nil)
   (setq neo-theme 'nerd)
   (setq js2-strict-missing-semi-warning nil)
-  (setq-default indent-tabs-mode nil) 
-  (setq-default tab-width 4)
-  (setq-default js2-basic-offset 4)
-  (setq-default js-indent-level 4)
-  (setq css-indent-offset 4)
+  (setq-default indent-tabs-mode nil)
+  ;(setq-default tab-width 4)
+  ;(setq-default js2-basic-offset 4)
+  ;(setq-default js-indent-level 4)
+  ;(setq css-indent-offset 4)
   (defun my-web-mode-hook ()
     "Hooks for Web mode."
-    (setq web-mode-markup-indent-offset 4)
-    (setq web-mode-css-indent-offset 4)
-    (setq web-mode-code-indent-offset 4)
-    (setq web-mode-attr-indent-offset 4)
+    ;(setq web-mode-markup-indent-offset 4)
+    ;(setq web-mode-css-indent-offset 4)
+    ;(setq web-mode-code-indent-offset 4)
+    ;(setq web-mode-attr-indent-offset 4)
+    (setq web-mode-enable-css-colorization t)
+    (setq web-mode-enable-block-face t)
     )
   (add-hook 'web-mode-hook  'my-web-mode-hook)
   (with-eval-after-load 'web-mode
@@ -338,10 +345,9 @@
     (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
   (with-eval-after-load 'stylus-mode
-    (setq tab-width 4)
-    (setq sws-tab-width 4))
-  (spacemacs/toggle-highlight-current-line-globally-off)
-  ;;(push '("\\.js\\'" . react-mode) auto-mode-alist)
+    ;(setq tab-width 4)
+    ;(setq sws-tab-width 4)
+    )
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -353,7 +359,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (stylus-mode sws-mode editorconfig org-plus-contrib hide-comnt yaml-mode xterm-color ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spacemacs-theme spaceline slim-mode shell-pop scss-mode sass-mode reveal-in-osx-finder restart-emacs request rainbow-delimiters quelpa pug-mode popwin phpunit phpcbf php-auto-yasnippets persp-mode pcre2el pbcopy paradox osx-trash osx-dictionary org-projectile org-present org-pomodoro org-download org-bullets open-junk-file neotree mwim multi-term move-text mmm-mode markdown-toc macrostep lorem-ipsum livid-mode linum-relative link-hint less-css-mode launchctl json-mode js2-refactor js-doc info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gh-md flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dumb-jump drupal-mode company-web company-tern company-statistics company-emacs-eclim column-enforce-mode coffee-mode clean-aindent-mode auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+    (sql-indent rainbow-mode rainbow-identifiers color-identifiers-mode stylus-mode sws-mode editorconfig org-plus-contrib hide-comnt yaml-mode xterm-color ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spacemacs-theme spaceline slim-mode shell-pop scss-mode sass-mode reveal-in-osx-finder restart-emacs request rainbow-delimiters quelpa pug-mode popwin phpunit phpcbf php-auto-yasnippets persp-mode pcre2el pbcopy paradox osx-trash osx-dictionary org-projectile org-present org-pomodoro org-download org-bullets open-junk-file neotree mwim multi-term move-text mmm-mode markdown-toc macrostep lorem-ipsum livid-mode linum-relative link-hint less-css-mode launchctl json-mode js2-refactor js-doc info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gh-md flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dumb-jump drupal-mode company-web company-tern company-statistics company-emacs-eclim column-enforce-mode coffee-mode clean-aindent-mode auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
