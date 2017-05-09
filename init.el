@@ -339,6 +339,8 @@ you should place your code here."
   (setq powerline-default-separator nil)
   (setq neo-vc-integration nil)
   (setq neo-theme 'nerd)
+  (setq neo-smart-open nil)
+  (setq projectile-switch-project-action 'neotree-projectile-action)
   (setq-default indent-tabs-mode nil)
   (defun my-web-mode-hook ()
     "Hooks for Web mode."
