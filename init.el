@@ -343,6 +343,7 @@ you should place your code here."
   (setq neo-theme 'nerd)
   (setq neo-autorefresh nil)
   (setq projectile-switch-project-action 'neotree-projectile-action)
+  (setq js2-strict-trailing-comma-warning nil)
   (setq-default indent-tabs-mode nil)
   (defun my-web-mode-hook ()
     "Hooks for Web mode."
