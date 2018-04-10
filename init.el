@@ -360,6 +360,15 @@ you should place your code here."
     (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
+  (with-eval-after-load 'org
+    (setq org-todo-keywords
+          '((sequence "TODO" "DOING" "WAITING" "|" "DONE" "CANCEL")))
+    (setq org-todo-keyword-faces
+          '(("TODO" . "red")
+            ("DOING" . "yellow")
+            ("WAITING" . "orange")
+            ("DONE" . "green")
+            ("CANCEL" . "black"))))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
