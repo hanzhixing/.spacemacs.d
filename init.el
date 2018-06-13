@@ -156,11 +156,13 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
+
    dotspacemacs-default-font '("DejaVu Sans Mono"
                                :size 14
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
+
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
@@ -369,6 +371,11 @@ you should place your code here."
             ("WAITING" . "orange")
             ("DONE" . "green")
             ("CANCEL" . "black"))))
+
+  ;; See https://coldnew.github.io/d5011be2/
+  (dolist (charset '(kana han symbol cjk-misc bopomofo))
+    (set-fontset-font (frame-parameter nil 'font) charset
+                      (font-spec :family "Noto Sans Mono CJK SC" :size 16)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
