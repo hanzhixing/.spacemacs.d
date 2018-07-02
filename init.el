@@ -352,6 +352,7 @@ you should place your code here."
   (setq projectile-switch-project-action 'neotree-projectile-action)
   (setq js2-strict-trailing-comma-warning nil)
   (setq-default indent-tabs-mode nil)
+  (add-to-list 'auto-mode-alist '("\\.test\\'" . text-mode))
   (defun my-web-mode-hook ()
     "Hooks for Web mode."
     (setq web-mode-enable-css-colorization t)
