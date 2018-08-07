@@ -52,7 +52,7 @@ This function should only modify configuration layer settings."
      emacs-lisp
      helm
      html
-     javascript
+     (javascript :variables javascript-backend nil)
      typescript
      markdown
      (org :variables org-enable-github-support t)
@@ -63,6 +63,9 @@ This function should only modify configuration layer settings."
             shell-default-position 'bottom
             shell-default-shell 'ansi-term)
      yaml
+     (syntax-checking :variables 
+                      syntax-checking-enable-by-default nil
+                      syntax-checking-enable-tooltips nil)
      )
 
    ;; List of additional packages that will be installed without being
@@ -489,7 +492,7 @@ before packages are loaded."
   (setq js2-strict-trailing-comma-warning nil)
   (setq-default indent-tabs-mode nil)
   (add-to-list 'auto-mode-alist '("\\.test\\'" . text-mode))
-  (add-to-list 'auto-mode-alist '("\\.js\\'" . react-mode))
+  ;(add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
   (defun my-web-mode-hook ()
     "Hooks for Web mode."
     (setq web-mode-enable-css-colorization t)
@@ -530,7 +533,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (ac-ispell yasnippet-snippets yaml-mode xterm-color ws-butler winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill toc-org tide tagedit symon stylus-mode string-inflection spaceline-all-the-icons slime-company slim-mode shell-pop scss-mode sass-mode rjsx-mode reveal-in-osx-finder restart-emacs request rainbow-mode rainbow-identifiers rainbow-delimiters pug-mode popwin persp-mode pcre2el password-generator paradox ox-gfm overseer osx-trash osx-dictionary org-projectile org-present org-pomodoro org-mime org-download org-bullets org-brain open-junk-file neotree nameless mwim multi-term move-text mmm-mode markdown-toc lorem-ipsum livid-mode linum-relative link-hint less-css-mode launchctl json-navigator json-mode js2-refactor js-doc indent-guide impatient-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gh-md fuzzy font-lock+ flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav editorconfig dumb-jump dotenv-mode diminish counsel-projectile company-web company-tern company-statistics common-lisp-snippets column-enforce-mode color-identifiers-mode clean-aindent-mode centered-cursor-mode auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent ace-window ace-link ace-jump-helm-line))))
+    (flycheck-pos-tip pos-tip ac-ispell yasnippet-snippets yaml-mode xterm-color ws-butler winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill toc-org tide tagedit symon stylus-mode string-inflection spaceline-all-the-icons slime-company slim-mode shell-pop scss-mode sass-mode rjsx-mode reveal-in-osx-finder restart-emacs request rainbow-mode rainbow-identifiers rainbow-delimiters pug-mode popwin persp-mode pcre2el password-generator paradox ox-gfm overseer osx-trash osx-dictionary org-projectile org-present org-pomodoro org-mime org-download org-bullets org-brain open-junk-file neotree nameless mwim multi-term move-text mmm-mode markdown-toc lorem-ipsum livid-mode linum-relative link-hint less-css-mode launchctl json-navigator json-mode js2-refactor js-doc indent-guide impatient-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gh-md fuzzy font-lock+ flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav editorconfig dumb-jump dotenv-mode diminish counsel-projectile company-web company-tern company-statistics common-lisp-snippets column-enforce-mode color-identifiers-mode clean-aindent-mode centered-cursor-mode auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent ace-window ace-link ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
