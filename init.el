@@ -463,7 +463,7 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  (setq neo-theme 'ascii)
+  (setq neo-theme 'nerd)
   (editorconfig-mode 1)
   ;; disable js2-mode message because the use of eslint
   (setq js2-mode-show-parse-errors nil)
