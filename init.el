@@ -158,7 +158,7 @@ values."
    ;; quickly tweak the mode-line size to make separators look not too crappy.
 
    dotspacemacs-default-font '("DejaVu Sans Mono"
-                               :size 14
+                               :size 16
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -353,6 +353,7 @@ you should place your code here."
   (setq js2-strict-trailing-comma-warning nil)
   (setq-default indent-tabs-mode nil)
   (add-to-list 'auto-mode-alist '("\\.test\\'" . text-mode))
+  (add-to-list 'auto-mode-alist '("\\.mjs\\'" . js2-mode))
   (defun my-web-mode-hook ()
     "Hooks for Web mode."
     (setq web-mode-enable-css-colorization t)
