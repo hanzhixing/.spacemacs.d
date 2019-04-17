@@ -215,7 +215,7 @@ It should only modify the values of Spacemacs settings."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("DejaVu Sans Mono"
-                               :size 17
+                               :size 15
                                :weight normal
                                :width normal)
 
@@ -482,7 +482,7 @@ before packages are loaded."
   ;; See https://coldnew.github.io/d5011be2/
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font) charset
-                      (font-spec :family "Noto Sans Mono CJK SC" :size 20)))
+                      (font-spec :family "Noto Sans Mono CJK SC" :size 18)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
