@@ -468,6 +468,7 @@ before packages are loaded."
   ;; disable js2-mode message because the use of eslint
   (setq js2-mode-show-parse-errors nil)
   (setq js2-mode-show-strict-warnings nil)
+  (setq js-switch-indent-offset 4)
   (spacemacs/toggle-highlight-current-line-globally-off)
   (add-to-list 'auto-mode-alist '("\\.test\\'" . text-mode))
   (add-to-list 'auto-mode-alist '("\\.mjs\\'" . js2-mode))
