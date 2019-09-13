@@ -20,7 +20,7 @@ This function should only modify configuration layer settings."
    ;; installation feature and you have to explicitly list a layer in the
    ;; variable `dotspacemacs-configuration-layers' to install it.
    ;; (default 'unused)
-   dotspacemacs-enable-lazy-installation 'unused
+   dotspacemacs-enable-lazy-installation nil
 
    ;; If non-nil then Spacemacs will ask for confirmation before installing
    ;; a layer lazily. (default t)
@@ -47,10 +47,11 @@ This function should only modify configuration layer settings."
      lsp
      (javascript :variables
                  node-add-modules-path t
-                 javascript-backend 'lsp)
+                 javascript-backend 'lsp
+                 javascript-lsp-linter nil)
      markdown
      multiple-cursors
-     neotree
+     ;; neotree
      org
      react
      (shell :variables
@@ -58,7 +59,7 @@ This function should only modify configuration layer settings."
             shell-default-position 'bottom)
      syntax-checking
      themes-megapack
-     ;; treemacs
+     treemacs
      unicode-fonts
      yaml
      )
@@ -476,7 +477,12 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (editorconfig-mode 1)
-  (setq neo-theme 'nerd)
+  ;; (setq neo-theme 'nerd)
+  (setq treemacs-no-png-images t)
+  (setq lsp-eldoc-enable-hover nil)
+  (setq lsp-eldoc-render-all nil)
+  (setq lsp-eldoc-enable-signature-help nil)
+  (setq lsp-eldoc-prefer-signature-help t)
   ;; disable js2-mode message because the use of eslint
   (setq js2-mode-show-parse-errors nil)
   (setq js2-mode-show-strict-warnings nil)
