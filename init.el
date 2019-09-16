@@ -506,7 +506,9 @@ before packages are loaded."
   ;; See https://coldnew.github.io/d5011be2/
   (defvar my-english-font "DejaVu Sans Mono")
   (defvar my-cjk-font "Noto Sans Mono CJK SC")
+  (defvar my-font-pair '("DejaVu Sans Mono" . "Noto Sans Mono CJK SC"))
 
+  (defvar my-font-size-pair nil)
   (defvar my-font-size-pair-mpb13 '(15 . 18))
   (defvar my-font-size-pair-mpb15 '(19 . 22))
 
@@ -524,45 +526,45 @@ before packages are loaded."
         nil
       (if (not (x-list-fonts fontname)) nil t)))
 
-  (defun set-font (english chinese size-pair)
+  (defun set-font (font-pair size-pair)
     "Setup emacs English and Chinese font on x window-system."
-
-    (if (font-exist-p english)
-        (set-frame-font (format "%s:pixelsize=%d" english (car size-pair)) t))
-
-    (if (font-exist-p chinese)
+    (if (font-exist-p (car font-pair))
+        (set-frame-font (format "%s:pixelsize=%d" (car font-pair) (car size-pair)) t))
+    (if (font-exist-p (cdr font-pair))
         (dolist (charset '(kana han symbol cjk-misc bopomofo))
           (set-fontset-font (frame-parameter nil 'font) charset
-                            (font-spec :family chinese :size (cdr size-pair))))))
+                            (font-spec :family (cdr font-pair) :size (cdr size-pair))))))
 
-  (defun emacs-step-font-size (step font-english font-cjk default-font-size-pair)
+  (defun my-step-font-size (step)
     "Increase/Decrease emacs's font size."
     (let ((scale-steps emacs-font-size-pair-list))
       (if (< step 0) (setq scale-steps (reverse scale-steps)))
-      (setq emacs-font-size-pair
-            (or (cadr (member emacs-font-size-pair scale-steps))
-                default-font-size-pair))
-      (when emacs-font-size-pair
-        (message "emacs font size set to %.1f" (car emacs-font-size-pair))
-        (set-font font-english font-cjk emacs-font-size-pair))))
+      (setq my-font-size-pair
+            (or (cadr (member my-font-size-pair scale-steps))
+                my-font-size-pair))
+      (when my-font-size-pair
+        (message "emacs font size set to %.1f" (car my-font-size-pair))
+        (set-font my-font-pair my-font-size-pair))))
 
-  (defun increase-emacs-font-size ()
+  (defun increase-my-font-size ()
     "Decrease emacs's font-size acording emacs-font-size-pair-list."
-    (interactive) (emacs-step-font-size 1 my-english-font my-cjk-font my-font-size-pair-mpb15))
+    (interactive)
+    (my-step-font-size 1))
 
-  (defun decrease-emacs-font-size ()
+  (defun decrease-my-font-size ()
     "Increase emacs's font-size acording emacs-font-size-pair-list."
-    (interactive) (emacs-step-font-size -1 my-english-font my-cjk-font my-font-size-pair-mpb15))
+    (interactive)
+    (my-step-font-size -1))
 
-  (global-set-key (kbd "C-=") 'increase-emacs-font-size)
-  (global-set-key (kbd "C--") 'decrease-emacs-font-size)
+  (global-set-key (kbd "C-=") 'increase-my-font-size)
+  (global-set-key (kbd "C--") 'decrease-my-font-size)
 
   ;; Setup font size based on emacs-font-size-pair
-  (x-display-pixel-width)
   (when window-system
     (if (> (x-display-pixel-width) 1600)
-        (set-font my-english-font my-cjk-font my-font-size-pair-mpb15)
-      (set-font my-english-font my-cjk-font my-font-size-pair-mpb13)))
+        (setq my-font-size-pair my-font-size-pair-mpb15)
+      (setq my-font-size-pair my-font-size-pair-mpb13))
+    (set-font my-font-pair my-font-size-pair))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
