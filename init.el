@@ -511,6 +511,13 @@ before packages are loaded."
   (setq js2-mode-show-strict-warnings nil)
   (setq js-switch-indent-offset 4)
 
+  ;; https://github.com/felipeochoa/rjsx-mode/issues/106
+  ;; https://github.com/felipeochoa/rjsx-mode/issues/85
+  (with-eval-after-load 'rjsx-mode
+    (setq-default js-indent-level 4)
+    (setq-default sgml-basic-offset 4)
+    )
+
   (spacemacs/toggle-highlight-current-line-globally-off)
 
   (add-to-list 'auto-mode-alist '("\\.test\\'" . text-mode))
