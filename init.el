@@ -60,6 +60,10 @@ This function should only modify configuration layer settings."
      syntax-checking
      themes-megapack
      treemacs
+     (typescript :variables
+                 node-add-modules-path t
+                 typescript-backend 'lsp
+                 typescript-lsp-linter nil)
      unicode-fonts
      yaml
      )
@@ -513,11 +517,9 @@ before packages are loaded."
   (defvar my-font-size-pair-mpb15 '(19 . 22))
 
   (defvar emacs-font-size-pair-list
-    '(( 5 .  6) (10 . 12)
-      (13 . 16) (15 . 18) (17 . 20)
-      (19 . 22) (20 . 24) (21 . 26)
-      (24 . 28) (26 . 32) (28 . 34)
-      (30 . 36) (34 . 40) (36 . 44))
+    '((10 . 12) (12 . 14) (13 . 16)
+      (15 . 18) (17 . 20) (19 . 22)
+      (20 . 24) (21 . 26) (24 . 28))
     "This list is used to store matching (englis . chinese) font-size.")
 
   (defun font-exist-p (fontname)
