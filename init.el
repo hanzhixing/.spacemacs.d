@@ -40,19 +40,23 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      auto-completion
      better-defaults
-     common-lisp
+     ;; common-lisp
      emacs-lisp
      helm
      html
-     lsp
+     ;; too slow in emacs 26, wait for 27
+     ;; lsp
+     ;; (javascript :variables
+     ;;             node-add-modules-path t
+     ;;             javascript-backend 'lsp
+     ;;             javascript-lsp-linter nil)
      (javascript :variables
                  node-add-modules-path t
-                 javascript-backend 'lsp
-                 javascript-lsp-linter nil)
+                 javascript-backend 'tern)
      markdown
      multiple-cursors
      ;; neotree
-     org
+     ;; org
      react
      (shell :variables
             shell-default-height 30
@@ -60,10 +64,13 @@ This function should only modify configuration layer settings."
      syntax-checking
      themes-megapack
      treemacs
+     ;; (typescript :variables
+     ;;             node-add-modules-path t
+     ;;             typescript-backend 'lsp
+     ;;             typescript-lsp-linter nil)
      (typescript :variables
                  node-add-modules-path t
-                 typescript-backend 'lsp
-                 typescript-lsp-linter nil)
+                 typescript-backend 'tide)
      unicode-fonts
      yaml
      )
@@ -479,6 +486,10 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
+  (setq configuration-layer-elpa-archives
+    '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+      ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
+      ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
   )
 
 (defun dotspacemacs/user-load ()
@@ -498,13 +509,13 @@ before packages are loaded."
   ;; (setq neo-theme 'nerd)
   (setq treemacs-no-png-images t)
 
-  (setq lsp-enable-semantic-highlighting nil)
-  (setq lsp-ui-doc-enable nil)
-  (setq lsp-ui-sideline-enable nil)
-  (setq lsp-eldoc-enable-hover nil)
-  (setq lsp-eldoc-render-all nil)
-  (setq lsp-eldoc-enable-signature-help nil)
-  (setq lsp-eldoc-prefer-signature-help nil)
+  ;; (setq lsp-enable-semantic-highlighting nil)
+  ;; (setq lsp-ui-doc-enable nil)
+  ;; (setq lsp-ui-sideline-enable nil)
+  ;; (setq lsp-eldoc-enable-hover nil)
+  ;; (setq lsp-eldoc-render-all nil)
+  ;; (setq lsp-eldoc-enable-signature-help nil)
+  ;; (setq lsp-eldoc-prefer-signature-help nil)
 
   ;; disable js2-mode message because the use of eslint
   (setq js2-mode-show-parse-errors nil)
@@ -523,14 +534,14 @@ before packages are loaded."
   (add-to-list 'auto-mode-alist '("\\.test\\'" . text-mode))
   (add-to-list 'auto-mode-alist '("\\.mjs\\'" . js2-mode))
 
-  (setq org-todo-keywords
-        '((sequence "TODO" "DOING" "WAITING" "|" "DONE" "CANCEL")))
-  (setq org-todo-keyword-faces
-        '(("TODO" . "red")
-          ("DOING" . "yellow")
-          ("WAITING" . "orange")
-          ("DONE" . "green")
-          ("CANCEL" . "black")))
+  ;; (setq org-todo-keywords
+  ;;       '((sequence "TODO" "DOING" "WAITING" "|" "DONE" "CANCEL")))
+  ;; (setq org-todo-keyword-faces
+  ;;       '(("TODO" . "red")
+  ;;         ("DOING" . "yellow")
+  ;;         ("WAITING" . "orange")
+  ;;         ("DONE" . "green")
+  ;;         ("CANCEL" . "black")))
 
   ;; See https://coldnew.github.io/d5011be2/
   ;; See https://coldnew.github.io/d5011be2/
