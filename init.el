@@ -46,13 +46,11 @@ This function should only modify configuration layer settings."
      html
      ;; too slow in emacs 26, wait for 27
      ;; lsp
-     ;; (javascript :variables
-     ;;             node-add-modules-path t
-     ;;             javascript-backend 'lsp
-     ;;             javascript-lsp-linter nil)
      (javascript :variables
-                 node-add-modules-path t
-                 javascript-backend 'tern)
+                 javascript-backend 'tern
+                 ;; javascript-backend 'lsp
+                 ;; javascript-lsp-linter nil
+                 node-add-modules-path t)
      markdown
      multiple-cursors
      ;; neotree
@@ -64,13 +62,11 @@ This function should only modify configuration layer settings."
      syntax-checking
      themes-megapack
      treemacs
-     ;; (typescript :variables
-     ;;             node-add-modules-path t
-     ;;             typescript-backend 'lsp
-     ;;             typescript-lsp-linter nil)
      (typescript :variables
-                 node-add-modules-path t
-                 typescript-backend 'tide)
+                 typescript-backend 'tide
+                 ;; typescript-backend 'lsp
+                 ;; typescript-lsp-linter nil
+                 node-add-modules-path t)
      unicode-fonts
      yaml
      )
