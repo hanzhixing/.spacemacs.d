@@ -41,10 +41,11 @@ This function should only modify configuration layer settings."
      auto-completion
      better-defaults
      ;; common-lisp
+     docker
      emacs-lisp
      helm
      html
-     ;; too slow in emacs 26, wait for 27
+     ;; lsp is too slow
      ;; lsp
      (javascript :variables
                  javascript-backend 'tern
@@ -54,6 +55,7 @@ This function should only modify configuration layer settings."
      markdown
      multiple-cursors
      ;; neotree
+     nginx
      org
      react
      (shell :variables
@@ -466,6 +468,13 @@ It should only modify the values of Spacemacs settings."
    ;; (default t)
    dotspacemacs-use-clean-aindent-mode t
 
+   ;; If non-nil shift your number row to match the entered keyboard layout
+   ;; (only in insert state). Currently supported keyboard layouts are:
+   ;; `qwerty-us', `qwertz-de' and `querty-ca-fr'.
+   ;; New layouts can be added in `spacemacs-editing' layer.
+   ;; (default nil)
+   dotspacemacs-swap-number-row nil
+
    ;; Either nil or a number of seconds. If non-nil zone out after the specified
    ;; number of seconds. (default nil)
    dotspacemacs-zone-out-when-idle nil
@@ -516,13 +525,13 @@ before packages are loaded."
   ;; (setq neo-theme 'nerd)
   (setq treemacs-no-png-images t)
 
-  ;; (setq lsp-enable-semantic-highlighting nil)
-  ;; (setq lsp-ui-doc-enable nil)
-  ;; (setq lsp-ui-sideline-enable nil)
-  ;; (setq lsp-eldoc-enable-hover nil)
-  ;; (setq lsp-eldoc-render-all nil)
-  ;; (setq lsp-eldoc-enable-signature-help nil)
-  ;; (setq lsp-eldoc-prefer-signature-help nil)
+  (setq lsp-enable-semantic-highlighting nil)
+  (setq lsp-ui-doc-enable nil)
+  (setq lsp-ui-sideline-enable nil)
+  (setq lsp-eldoc-enable-hover nil)
+  (setq lsp-eldoc-render-all nil)
+  (setq lsp-eldoc-enable-signature-help nil)
+  (setq lsp-eldoc-prefer-signature-help nil)
 
   ;; disable js2-mode message because the use of eslint
   (setq js2-mode-show-parse-errors nil)
