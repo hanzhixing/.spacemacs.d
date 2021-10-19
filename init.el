@@ -68,7 +68,9 @@ This function should only modify configuration layer settings."
      treemacs
      (typescript :variables
                  typescript-backend 'tide
+                 tide-tsserver-executable "/Users/hanzhixing/.nvm/versions/node/v14.17.4/bin/tsserver"
                  ;; typescript-backend 'lsp
+                 typescript-linter 'eslint
                  ;; typescript-lsp-linter nil
                  node-add-modules-path t)
      unicode-fonts
@@ -573,6 +575,7 @@ before packages are loaded."
   ;; (setq neo-theme 'nerd)
   (setq treemacs-no-png-images t)
 
+  (setq web-mode-enable-auto-quoting nil)
   (setq lsp-enable-semantic-highlighting nil)
   (setq lsp-ui-doc-enable nil)
   (setq lsp-ui-sideline-enable nil)
