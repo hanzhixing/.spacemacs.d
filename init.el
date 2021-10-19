@@ -68,7 +68,7 @@ This function should only modify configuration layer settings."
      treemacs
      (typescript :variables
                  typescript-backend 'tide
-                 tide-tsserver-executable "/Users/hanzhixing/.nvm/versions/node/v14.17.4/bin/tsserver"
+                 ;; tide-tsserver-executable "/Users/hanzhixing/.nvm/versions/node/v14.17.4/bin/tsserver"
                  ;; typescript-backend 'lsp
                  typescript-linter 'eslint
                  ;; typescript-lsp-linter nil
@@ -551,11 +551,16 @@ configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
+  ;; (setq configuration-layer-elpa-archives
+  ;;       '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
+  ;;         ("org-cn"   . "http://elpa.emacs-china.org/org/")
+  ;;         ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")
+  ;;       ("nongnu"   . "https://elpa.nongnu.org/nongnu/")))
   (setq configuration-layer-elpa-archives
-        '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
-          ("org-cn"   . "http://elpa.emacs-china.org/org/")
-          ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")
-        ("nongnu"   . "https://elpa.nongnu.org/nongnu/")))
+        '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+          ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
+          ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+          ("nongnu"   . "https://elpa.nongnu.org/nongnu/")))
   )
 
 (defun dotspacemacs/user-load ()
