@@ -46,13 +46,12 @@ This function should only modify configuration layer settings."
      helm
      html
      ;; lsp is too slow
-     ;; (lsp :variables
-     ;;      lsp-headerline-breadcrumb-enable nil)
+     (lsp :variables
+          lsp-headerline-breadcrumb-enable nil)
      (javascript :variables
                  javascript-backend 'tide
                  ;; javascript-backend 'lsp
                  ;; javascript-lsp-linter nil
-                 javascript-repl `nodejs
                  node-add-modules-path t)
      markdown
      multiple-cursors
@@ -67,11 +66,11 @@ This function should only modify configuration layer settings."
      themes-megapack
      treemacs
      (typescript :variables
-                 typescript-backend 'tide
+                 ;; typescript-backend 'tide
                  ;; tide-tsserver-executable "/Users/hanzhixing/.nvm/versions/node/v14.17.4/bin/tsserver"
-                 ;; typescript-backend 'lsp
                  typescript-linter 'eslint
-                 ;; typescript-lsp-linter nil
+                 typescript-backend 'lsp
+                 typescript-lsp-linter nil
                  node-add-modules-path t)
      unicode-fonts
      yaml
@@ -581,6 +580,9 @@ before packages are loaded."
   (setq treemacs-no-png-images t)
 
   (setq web-mode-enable-auto-quoting nil)
+
+  (setq read-process-output-max (* 1024 1024)) ;; 1mb
+
   (setq lsp-enable-semantic-highlighting nil)
   (setq lsp-ui-doc-enable nil)
   (setq lsp-ui-sideline-enable nil)
@@ -593,6 +595,9 @@ before packages are loaded."
   (setq js2-mode-show-parse-errors nil)
   (setq js2-mode-show-strict-warnings nil)
   (setq js-switch-indent-offset 4)
+
+  ;; this feature will insert spaces before and after braces, which is not wanted
+  (setq lsp-enable-indentation nil)
 
   ;; https://github.com/felipeochoa/rjsx-mode/issues/106
   ;; https://github.com/felipeochoa/rjsx-mode/issues/85
