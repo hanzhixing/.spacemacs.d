@@ -49,9 +49,10 @@ This function should only modify configuration layer settings."
      (lsp :variables
           lsp-headerline-breadcrumb-enable nil)
      (javascript :variables
-                 javascript-backend 'tide
-                 ;; javascript-backend 'lsp
-                 ;; javascript-lsp-linter nil
+                 js2-mode-show-strict-warnings nil
+                 js2-mode-show-parse-errors nil
+                 javascript-backend 'lsp
+                 javascript-lsp-linter nil
                  node-add-modules-path t)
      markdown
      multiple-cursors
@@ -66,8 +67,6 @@ This function should only modify configuration layer settings."
      themes-megapack
      treemacs
      (typescript :variables
-                 ;; typescript-backend 'tide
-                 ;; tide-tsserver-executable "/Users/hanzhixing/.nvm/versions/node/v14.17.4/bin/tsserver"
                  typescript-linter 'eslint
                  typescript-backend 'lsp
                  typescript-lsp-linter nil
@@ -583,21 +582,16 @@ before packages are loaded."
 
   (setq read-process-output-max (* 1024 1024)) ;; 1mb
 
-  (setq lsp-enable-semantic-highlighting nil)
   (setq lsp-ui-doc-enable nil)
   (setq lsp-ui-sideline-enable nil)
-  (setq lsp-eldoc-enable-hover nil)
-  (setq lsp-eldoc-render-all nil)
-  (setq lsp-eldoc-enable-signature-help nil)
-  (setq lsp-eldoc-prefer-signature-help nil)
-
-  ;; disable js2-mode message because the use of eslint
-  (setq js2-mode-show-parse-errors nil)
-  (setq js2-mode-show-strict-warnings nil)
-  (setq js-switch-indent-offset 4)
 
   ;; this feature will insert spaces before and after braces, which is not wanted
   (setq lsp-enable-indentation nil)
+
+  ;; disable js2-mode message because the use of eslint
+  ;; (setq js2-mode-show-parse-errors nil)
+  ;; (setq js2-mode-show-strict-warnings nil)
+  (setq js-switch-indent-offset 4)
 
   ;; https://github.com/felipeochoa/rjsx-mode/issues/106
   ;; https://github.com/felipeochoa/rjsx-mode/issues/85
